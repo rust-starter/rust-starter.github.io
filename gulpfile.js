@@ -46,7 +46,7 @@ function css(cb) {
         .pipe(clean_css())
         .pipe(rev())
         .pipe(dest('docs'))
-        .pipe(rev.manifest('build/rev-manifest.json', {
+        .pipe(rev.manifest('docs/rev-manifest.json', {
             base: 'docs',
             merge:true
         }))
