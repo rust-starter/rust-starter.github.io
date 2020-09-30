@@ -10,9 +10,6 @@ const del = require('del');
 const htmlmin = require('gulp-htmlmin');
 const browser_sync = require('browser-sync').create();
 const argv = require('yargs').argv;
-const webpack = require('webpack');
-const webpackStream = require('webpack-stream');
-const webpackConfig = require('./webpack.config.js');
 const hostile = require('hostile');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
@@ -60,9 +57,8 @@ function js(cb) {
     del.sync(['build/*.js'], {force: true});
 
     return src([
-        'src/javascript/index.tsx'
+        'src/javascript/main.js'
     ])
-        .pipe(webpackStream(webpackConfig), webpack)
         .pipe(minify_js({noSource: true}))
         .pipe(concat('javascript.min.js'))
         .pipe(rev())
