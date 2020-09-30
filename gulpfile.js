@@ -106,9 +106,8 @@ function browser_reload(cb) {
     console.info("== Launching Browser Reload ==");
 
     browser_sync.init({
-        server: "build",
-        host: 'frontroot.com',
-        port: 8080
+        server: "docs",
+        port: 8822
     });
 
     watch('docs/*.html').on('change', browser_sync.reload);
