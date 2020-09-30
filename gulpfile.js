@@ -17,7 +17,7 @@ sass.compiler = require('node-sass');
 const app = require('assemble')();
 
 function html(cb) {
-    var manifest = src('build/rev-manifest.json',{allowEmpty: true});
+    var manifest = src('docs/rev-manifest.json',{allowEmpty: true});
     app.pages('src/html/*.html');
     app.partials('src/html/partials/*.html');
 
@@ -28,13 +28,13 @@ function html(cb) {
             collapseWhitespace: true,
             removeComments: true
         }))
-        .pipe(app.dest('build'));
+        .pipe(app.dest('docs'));
 
     cb();
 }
 
 function css(cb) {
-    del.sync(['build/*.css'], {force: true});
+    del.sync(['docs/*.css'], {force: true});
 
     return src(
         [
@@ -45,16 +45,16 @@ function css(cb) {
         .pipe(concat('style.min.css'))
         .pipe(clean_css())
         .pipe(rev())
-        .pipe(dest('build'))
+        .pipe(dest('docs'))
         .pipe(rev.manifest('build/rev-manifest.json', {
-            base: 'build',
+            base: 'docs',
             merge:true
         }))
-        .pipe(dest('build'));
+        .pipe(dest('docs'));
 }
 
 function js(cb) {
-    del.sync(['build/*.js'], {force: true});
+    del.sync(['docs/*.js'], {force: true});
 
     return src([
         'src/javascript/main.js'
@@ -62,20 +62,20 @@ function js(cb) {
         .pipe(minify_js({noSource: true}))
         .pipe(concat('javascript.min.js'))
         .pipe(rev())
-        .pipe(dest('build'))
-        .pipe(rev.manifest('build/rev-manifest.json', {
-            base: 'build',
+        .pipe(dest('docs'))
+        .pipe(rev.manifest('docs/rev-manifest.json', {
+            base: 'docs',
             merge:true
         }))
-        .pipe(dest('build'));
+        .pipe(dest('docs'));
 }
 
 function files(cb) {
     src(['src/images/**/*.*'])
-        .pipe(dest('build/images/'));
+        .pipe(dest('docs/images/'));
 
     src(['src/fonts/**/*.*'])
-        .pipe(dest('build/fonts/'));
+        .pipe(dest('docs/fonts/'));
 
     cb();
 }
@@ -84,7 +84,7 @@ function wc() {
     console.info("== Watching Files ==");
 
     watch('src/html/**/*.*', html);
-    watch('build/rev-manifest.json', html);
+    watch('docs/rev-manifest.json', html);
     watch('src/sass/**/*.*', css, html);
     watch('src/javascript/**/*.*', js, html);
     watch(['src/images/**/*.*', 'src/fonts/**/*.*'], files);
@@ -111,13 +111,13 @@ function browser_reload(cb) {
         port: 8080
     });
 
-    watch('build/*.html').on('change', browser_sync.reload);
+    watch('docs/*.html').on('change', browser_sync.reload);
 
     cb();
 }
 
 function clean(cb) {
-    return del(['build/*'], {force: true});
+    return del(['docs/*'], {force: true});
 }
 
 const defaultTask = series(
