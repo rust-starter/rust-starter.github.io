@@ -1,4 +1,17 @@
 // Terminal CSS base theme 
 @import "../../node_modules/terminal.css/dist/terminal.css";
 
-@import "variables"
+// Variables
+@import "variables";
+
+// Child TOC
+ol>li.has-child {
+    border-bottom: none;
+}
+ol>li.has-child::before {
+    bottom: auto;
+}
+ol>li.has-child ol {
+    padding-top: 15px;
+    padding-left: 25px;
+}
