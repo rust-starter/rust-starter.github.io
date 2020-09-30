@@ -1,10 +1,2 @@
-// Custom styles
-@import "variables.scss";
-
-// Required Bootstrap files
-@import "../../node_modules/bootstrap/scss/functions";
-@import "../../node_modules/bootstrap/scss/variables";
-@import "../../node_modules/bootstrap/scss/mixins";
-
-// Optional Bootstrap files
-@import "../../node_modules/bootstrap/scss/grid";
+// Terminal CSS base theme 
+@import "../../node_modules/terminal.css/dist/terminal.css";

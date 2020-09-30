@@ -4,6 +4,7 @@
     "description": "Simplify Front-End development",
     "main": "gulpfile.js",
     "dependencies": {
+        "terminal.css": "^0.7.1",
         "yargs": "^13.2.4"
     },
     "devDependencies": {
