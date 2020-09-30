@@ -1,22 +1,42 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
-    {{> head }}
-    <body>        
-        <div class="container">
-            <div class="row">
-                <div class="col-sm">
-                   Column 1
-                </div>
-                <div class="col-sm">
-                   Column 2
-                </div>
-                <div class="col-sm">
-                   Column 3
-                </div>
-            </div>
-        </div>
-        <div id="root">
-            </div>
-        {{> footer }}
-    </body>
+{{> head }}
+
+<body class="terminal">
+    <div class="container">
+
+
+        <h2 id="project-goals">Project Goals</h2>
+        <p>Terminal CSS has no overhead and is lightweight <strong>(~ 3k gzip)</strong>.
+            The source is written in <strong>pure css</strong> to be accessible
+            for everybody and easy to contribute.</p>
+        <h2 id="markdown-terminal-css">Markdown ❤️ Terminal CSS</h2>
+        <p>It&#39;s perfect for your <em>personal website</em>, <em>blog</em>, or
+            <em>side project</em>.</p>
+        <h2 id="how-to-use">How to use</h2>
+        <p>When using something like Webpack just install with <code>npm i terminal.css</code>.</p>
+        <pre><code class="language-js">import &#39;terminal.css&#39;</code></pre>
+        <p>Terminal CSS is also available via <a href="https://unpkg.com/terminal.css@0.7.1/dist/terminal.min.css">CDN</a></p>
+        <pre><code class="language-html">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/terminal.css@0.7.1/dist/terminal.min.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/terminal.css@0.7.1/dist/terminal.min.css&quot; /&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://unpkg.com/terminal.css@0.7.1/dist/terminal.min.css&quot; /&gt;</code></pre>
+
+
+        <main>
+            <section>
+  <p>A <strong>Table of content</strong>, which can be used as an index for a blog archive.</p>
+  <p>Unlike regular lists, the TOC component <em>only supports a single depth level.</em></p>
+  <ol class="terminal-toc">
+    <li><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</a></li>
+    <li><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</a></li>
+     <li><a href="#">Aliquam tincidunt mauris eu risus.</a></li>
+    <li><a href="#">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</a></li>
+    <li><a href="#">Aliquam tincidunt mauris eu risus.</a></li>
+  </ol>
+            </section>
+        </main>
+
+
+    </div>
+    {{> footer }}
+</body>
+
 </html>
