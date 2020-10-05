@@ -24,10 +24,10 @@ function html(cb) {
     app.toStream('pages')
         .pipe(app.renderFile())
         .pipe(rev_rewrite({manifest}))
-        .pipe(htmlmin({
-            collapseWhitespace: true,
-            removeComments: true
-        }))
+        //.pipe(htmlmin({
+            //collapseWhitespace: true,
+            //removeComments: true
+        //}))
         .pipe(app.dest('docs'));
 
     cb();
