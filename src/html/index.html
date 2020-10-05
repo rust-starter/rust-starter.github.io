@@ -72,6 +72,24 @@
                         egestas. Vestibulum tortor quam, feugiat vitae, ultricies
                         eget, tempor sit amet, ante.
                     </p>
+                    <pre><code>
+#[derive(Debug)]
+pub enum State {
+    Start,
+    Transient,
+    Closed,
+}
+
+impl From<&'a str> for State {
+fn from(s: &'a str) -> Self {
+        match s {
+            "start" => State::Start,
+            "closed" => State::Closed,
+            _ => unreachable!(),
+        }
+    }
+}
+                    </code></pre>
                 </section>
 
                 <section>
@@ -107,7 +125,7 @@
                     </p>
                 </section>
 
-<section>
+                <section>
                     <header>
                         <h3 id="feature-logging"><a href="#feature-logging">#</a> Logging</h3>
                     </header>
@@ -118,7 +136,7 @@
                     </p>
                 </section>
 
-<section>
+                <section>
                     <header>
                         <h3 id="feature-testing"><a href="#feature-testing">#</a> Testing</h3>
                     </header>
@@ -129,7 +147,7 @@
                     </p>
                 </section>
 
-<section>
+                <section>
                     <header>
                         <h3 id="feature-cicd"><a href="#feature-cicd">#</a> CI/CD</h3>
                     </header>
@@ -140,7 +158,7 @@
                     </p>
                 </section>
 
-<section>
+                <section>
                     <header>
                         <h3 id="feature-github"><a href="#feature-github">#</a> Github Actions</h3>
                     </header>
