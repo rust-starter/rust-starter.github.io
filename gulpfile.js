@@ -12,6 +12,7 @@ const browser_sync = require('browser-sync').create();
 const argv = require('yargs').argv;
 const hostile = require('hostile');
 const sass = require('gulp-sass');
+const obfuscateEmail = require('gulp-hide-email');
 sass.compiler = require('node-sass');
 
 const app = require('assemble')();
@@ -24,6 +25,7 @@ function html(cb) {
     app.toStream('pages')
         .pipe(app.renderFile())
         .pipe(rev_rewrite({manifest}))
+        .pipe(obfuscateEmail({verbose: false}))
         //.pipe(htmlmin({
             //collapseWhitespace: true,
             //removeComments: true
