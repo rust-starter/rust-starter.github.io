@@ -10,35 +10,46 @@
         <p>Create Rust CLI apps with no build configuration.</p>
 
         <h2 id="what-is">What is rust-starter?</h2>
-        <p><code>rust-starter</code> is a template CLI app that compiles. It makes choices about depedencies, structure, configuration, error handling, logging, CI/CD and more.</p>
-        <p>It is useful if you are looking to get started quickly and have sane defaults in place.</p>
+        <p><code>rust-starter</code> is a template CLI app that compiles. It makes
+            choices about depedencies, structure, configuration, error handling,
+            logging, CI/CD and more.</p>
+        <p>It is useful if you are looking to get started quickly and have sane defaults
+            in place.</p>
         <h2 id="how-to-use">Philosopy</h2>
         <ul>
-            <li><strong>Selected Depedencies: </strong> <code>rust-starter</code> is biased toward popular and stable depedencies. These can be changed, but we make this choice so that you can focus on coding.</li>
-            <li><strong>No Configuration: </strong> The <code>rust-starter</code> template already compiles, so you don't need to configure anything to get your program working.</li>
-            <li><strong>Sane Choices: </strong> <code>rust-starter</code> follows the <a href="https://github.com/mre/idiomatic-rust">idiomatic Rust</a> philosophy. It attempts to follow and stick to the industry best practices.</li>
+            <li><strong>Selected Depedencies: </strong> <code>rust-starter</code> is
+                biased toward popular and stable depedencies. These can be changed,
+                but we make this choice so that you can focus on coding.</li>
+            <li><strong>No Configuration: </strong> The <code>rust-starter</code> template
+                already compiles, so you don't need to configure anything to get
+                your program working.</li>
+            <li><strong>Sane Choices: </strong> <code>rust-starter</code> follows the
+                <a href="https://github.com/mre/idiomatic-rust">idiomatic Rust</a>                philosophy. It attempts to follow and stick to the industry best
+                practices.</li>
         </ul>
 
-            <hr /> {{> toc }}
+        <hr /> {{> toc }}
 
-            <hr />
+        <hr />
 
-            <section>
-                <header>
-                    <h2 id="getting-started">Getting Started</h2>
-                </header>
-                <p>
-                <code>rust-starter</code> aims to keep things simple when starting. Simply clone the repository, and run the project. 
-                </p>
-                <pre><code>
+        <section>
+            <header>
+                <h2 id="getting-started">Getting Started</h2>
+            </header>
+            <p>
+                <code>rust-starter</code> aims to keep things simple when starting.
+                Simply clone the repository, and run the project.
+            </p>
+            <pre><code>
 git clone git@github.com:rust-starter/rust-starter.git
 cd rust-starter
 cargo run
                 </code></pre>
-                <p>
-                There are no configurations required and no initial code to write. You should get the following output upon running <code>cargo run</code>
-                </p>
-                <pre><code>
+            <p>
+                There are no configurations required and no initial code to write. You should get
+                the following output upon running <code>cargo run</code>
+            </p>
+            <pre><code>
 rust-starter 1.0.0
 Abid Omar <contact@omarabid.com>
 CLI interface
@@ -58,46 +69,59 @@ SUBCOMMANDS:
     hazard    Generate a hazardous occurance
     help      Prints this message or the help of the given subcommand(s)
 </code></pre>
-<p>
-That's it. If you got this output, <code>rust-starter</code> has successfully compiled and run. You can also run the available subcommands like <code>cargo run config</code> to show the loaded configuration and <code>cargo run hazard</code> which is a sample subcommand.
-</p>
-            </section>
+            <p>
+                That's it. If you got this output, <code>rust-starter</code> has
+                successfully compiled and run. You can also run the available subcommands
+                like <code>cargo run config</code> to show the loaded configuration
+                and <code>cargo run hazard</code> which is a sample subcommand.
+            </p>
+        </section>
 
-            <hr />
+        <hr />
+
+        <section>
+            <header>
+                <h2 id="faq">FAQ</h2>
+            </header>
+            <div class="terminal-card">
+                <header>How does rust-starter compare to clap?</header>
+                <div>
+                    <code>clap</code> and <code>rust-starter</code> do not serve
+                        the same purpose.
+                </div>
+            </div>
+            <div class="terminal-card">
+                <header>What are some reasons to use rust-starter?</header>
+                <div>
+                    <code>clap</code> and <code>rust-starter</code> do not serve
+                        the same purpose.
+                </div>
+            </div>
+            <div class="terminal-card">
+                <header>What are some reasons <strong>not</strong> to use rust-starter?</header>
+                <div>
+                    <code>clap</code> and <code>rust-starter</code> do not serve the same purpose.
+                </div>
+            </div>
+        </section>
+
+        <hr />
+
+        <section>
+            <header>
+                <h2 id="features">Features</h2>
+            </header>
 
             <section>
                 <header>
-                    <h2 id="faq">FAQ</h2>
+                    <h3 id="feature-modules"><a href="#feature-modules">#</a> Modules</h3>
                 </header>
                 <p>
                     Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
                     egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
                     tempor sit amet, ante.
                 </p>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
-                </p>
-            </section>
-
-            <hr />
-
-            <section>
-                <header>
-                    <h2 id="features">Features</h2>
-                </header>
-
-                <section>
-                    <header>
-                        <h3 id="feature-modules"><a href="#feature-modules">#</a> Modules</h3>
-                    </header>
-                    <p>
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante.
-                    </p>
-                    <pre><code>
+                <pre><code>
 #[derive(Debug)]
 pub enum State {
     Start,
@@ -115,97 +139,12 @@ fn from(s: &'a str) -> Self {
     }
 }
                     </code></pre>
-                </section>
-
-                <section>
-                    <header>
-                        <h3 id="feature-clap"><a href="#feature-clap">#</a> Clap</h3>
-                    </header>
-                    <p>
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante.
-                    </p>
-                </section>
-
-                <section>
-                    <header>
-                        <h3 id="feature-errors"><a href="#feature-errors">#</a> Errors</h3>
-                    </header>
-                    <p>
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante.
-                    </p>
-                </section>
-
-                <section>
-                    <header>
-                        <h3 id="feature-configuration"><a href="#feature-configuration">#</a> Configuration</h3>
-                    </header>
-                    <p>
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante.
-                    </p>
-                </section>
-
-                <section>
-                    <header>
-                        <h3 id="feature-logging"><a href="#feature-logging">#</a> Logging</h3>
-                    </header>
-                    <p>
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante.
-                    </p>
-                </section>
-
-                <section>
-                    <header>
-                        <h3 id="feature-testing"><a href="#feature-testing">#</a> Testing</h3>
-                    </header>
-                    <p>
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante.
-                    </p>
-                </section>
-
-                <section>
-                    <header>
-                        <h3 id="feature-cicd"><a href="#feature-cicd">#</a> CI/CD</h3>
-                    </header>
-                    <p>
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante.
-                    </p>
-                </section>
-
-                <section>
-                    <header>
-                        <h3 id="feature-github"><a href="#feature-github">#</a> Github Actions</h3>
-                    </header>
-                    <p>
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                        egestas. Vestibulum tortor quam, feugiat vitae, ultricies
-                        eget, tempor sit amet, ante.
-                    </p>
-                </section>
             </section>
-
-            <hr />
 
             <section>
                 <header>
-                    <h2 id="usage">Usage</h2>
+                    <h3 id="feature-clap"><a href="#feature-clap">#</a> Clap</h3>
                 </header>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
-                </p>
                 <p>
                     Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
                     egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
@@ -213,62 +152,152 @@ fn from(s: &'a str) -> Self {
                 </p>
             </section>
 
-            <hr />
+            <section>
+                <header>
+                    <h3 id="feature-errors"><a href="#feature-errors">#</a> Errors</h3>
+                </header>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                    tempor sit amet, ante.
+                </p>
+            </section>
 
             <section>
                 <header>
-                    <h2 id="contributing">Contributing</h2>
+                    <h3 id="feature-configuration"><a href="#feature-configuration">#</a> Configuration</h3>
                 </header>
                 <p>
-                We welcome any kind of contributions. Whether you are reporting a bug, coding a feature or correcting a typo. Every effort counts; and all contributions are greatly appreaciated.
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                    tempor sit amet, ante.
                 </p>
+            </section>
+
+            <section>
+                <header>
+                    <h3 id="feature-logging"><a href="#feature-logging">#</a> Logging</h3>
+                </header>
                 <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                    tempor sit amet, ante.
+                </p>
+            </section>
+
+            <section>
+                <header>
+                    <h3 id="feature-testing"><a href="#feature-testing">#</a> Testing</h3>
+                </header>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                    tempor sit amet, ante.
+                </p>
+            </section>
+
+            <section>
+                <header>
+                    <h3 id="feature-cicd"><a href="#feature-cicd">#</a> CI/CD</h3>
+                </header>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                    tempor sit amet, ante.
+                </p>
+            </section>
+
+            <section>
+                <header>
+                    <h3 id="feature-github"><a href="#feature-github">#</a> Github Actions</h3>
+                </header>
+                <p>
+                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                    tempor sit amet, ante.
+                </p>
+            </section>
+        </section>
+
+        <hr />
+
+        <section>
+            <header>
+                <h2 id="usage">Usage</h2>
+            </header>
+            <p>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                tempor sit amet, ante.
+            </p>
+            <p>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                tempor sit amet, ante.
+            </p>
+        </section>
+
+        <hr />
+
+        <section>
+            <header>
+                <h2 id="contributing">Contributing</h2>
+            </header>
+            <p>
+                We welcome any kind of contributions. Whether you are reporting a bug, coding a
+                feature or correcting a typo. Every effort counts; and all contributions
+                are greatly appreaciated.
+            </p>
+            <p>
                 Details on how to contribute can be found in <a href="https://github.com/rust-starter/rust-starter/blob/master/.github/CONTRIBUTING.md">CONTRIBUTING.md</a>.
-                </p>
-            </section>
+            </p>
+        </section>
 
-            <hr />
+        <hr />
 
-            <section>
-                <header>
-                    <h2 id="license">License</h2>
-                </header>
-                <p>
-                   rust-starter is licensed under the <a href="https://github.com/rust-starter/rust-starter/blob/master/LICENSE">MIT License</a>. Dependent libraries and crates have their own license. An analyze of licensing for these libraries is still under-work.
-                </p>
-                <p>
+        <section>
+            <header>
+                <h2 id="license">License</h2>
+            </header>
+            <p>
+                rust-starter is licensed under the <a href="https://github.com/rust-starter/rust-starter/blob/master/LICENSE">MIT License</a>.
+                Dependent libraries and crates have their own license. An analyze
+                of licensing for these libraries is still under-work.
+            </p>
+            <p>
                 The logo is sourced from <a href="https://www.flaticon.com/free-icon/nitrous-oxide_2906152">Flaticon</a>.
-                </p>
-            </section>
+            </p>
+        </section>
 
-            <hr />
+        <hr />
 
-            <section>
-                <header>
-                    <h2 id="related-crates">Related Crates</h2>
-                </header>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
-                </p>
-                <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
-                </p>
-            </section>
+        <section>
+            <header>
+                <h2 id="related-crates">Related Crates</h2>
+            </header>
+            <p>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                tempor sit amet, ante.
+            </p>
+            <p>
+                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
+                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
+                tempor sit amet, ante.
+            </p>
+        </section>
 
-            <hr />
+        <hr />
 
-            <section>
-                <header>
-                    <h2 id="author">Author</h2>
-                </header>
-                <p>
-                <code>rust-starter</code> is built and maintained by <a href="https://omarabid.com">Abid Omar</a>. You can reach me at <a href="mailto:ruststarter@omarabid.com">ruststarter@omarabid.com</a>.
-                </p>
-            </section>
+        <section>
+            <header>
+                <h2 id="author">Author</h2>
+            </header>
+            <p>
+                <code>rust-starter</code> is built and maintained by <a href="https://omarabid.com">Abid Omar</a>.
+                You can reach me at <a href="mailto:ruststarter@omarabid.com">ruststarter@omarabid.com</a>.
+            </p>
+        </section>
     </div>
     {{> footer }}
 </body>
