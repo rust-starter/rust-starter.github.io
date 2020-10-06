@@ -4,6 +4,20 @@
 // Variables
 @import "variables";
 
+// Logo
+.logo {
+    position: relative;
+    padding-left: 64px;
+    width: 250px;
+}
+.logo IMG {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 5px;
+    left: 0px;
+}
+
 // Child TOC
 ol>li.has-child {
     border-bottom: none;
