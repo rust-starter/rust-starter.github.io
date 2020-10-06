@@ -33,7 +33,7 @@
         <p>Create Rust CLI apps with no build configuration.</p>
 
         <h2 id="what-is">What is rust-starter?</h2>
-        <p><code>rust-starter</code> is a template CLI app that compiles. It makes choices about depedencies, structure, configuration, error handling, logging, devops and more.</p>
+        <p><code>rust-starter</code> is a template CLI app that compiles. It makes choices about depedencies, structure, configuration, error handling, logging, CI/CD and more.</p>
         <p>It is useful if you are looking to get started quickly and have sane defaults in place.</p>
         <h2 id="how-to-use">Philosopy</h2>
         <ul>
@@ -47,14 +47,14 @@
         <h2 id="table-of-content">Table of Content</h2>
         <nav>
             <ol class="terminal-toc">
-                <li><a href="#about">About.</a></li>
+                <li><a href="#getting-started">Getting Started.</a></li>
                 <li><a href="#faq">FAQ.</a></li>
                 <li class="has-child">
                     <a href="#features">Features.</a>
                     <ol>
                         <li><a href="#feature-modules">Modules.</a></li>
-                                    <li><a href="#feature-clap">Clap.</a></li>
-                                    <li><a href="#feature-errors">Errors.</a></li>
+                        <li><a href="#feature-clap">Clap.</a></li>
+                        <li><a href="#feature-errors">Errors.</a></li>
                         <li><a href="#feature-configuration">Configuration.</a></li>
                         <li><a href="#feature-logging">Logging.</a></li>
                         <li><a href="#feature-testing">Testing.</a></li>
@@ -77,18 +77,42 @@
 
             <section>
                 <header>
-                    <h2 id="about">About</h2>
+                    <h2 id="getting-started">Getting Started</h2>
                 </header>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                <code>rust-starter</code> aims to keep things simple when starting. Simply clone the repository, and run the project. 
                 </p>
+                <pre><code>
+git clone git@github.com:rust-starter/rust-starter.git
+cd rust-starter
+cargo run
+                </code></pre>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                There are no configurations required and no initial code to write. You should get the following output upon running <code>cargo run</code>
                 </p>
+                <pre><code>
+rust-starter 1.0.0
+Abid Omar <contact@omarabid.com>
+CLI interface
+
+USAGE:
+    rust-starter [OPTIONS] [SUBCOMMAND]
+
+FLAGS:
+    -h, --help       Prints help information
+    -V, --version    Prints version information
+
+OPTIONS:
+    -c, --config <FILE>    Set a custom config file
+
+SUBCOMMANDS:
+    config    Show Configuration
+    hazard    Generate a hazardous occurance
+    help      Prints this message or the help of the given subcommand(s)
+</code></pre>
+<p>
+That's it. If you got this output, <code>rust-starter</code> has successfully compiled and run. You can also run the available subcommands like <code>cargo run config</code> to show the loaded configuration and <code>cargo run hazard</code> which is a sample subcommand.
+</p>
             </section>
 
             <hr />
@@ -294,7 +318,7 @@ fn from(s: &'a str) -> Self {
                     <h2 id="author">Author</h2>
                 </header>
                 <p>
-                <code>rust-starter</code> is built and maintained by <a href="https://omarabid.com">Abid Omar</a>. You can reach me at <span id="ckfxpozxd0000ntlugmi5d3p2"><script>document.getElementById("ckfxpozxd0000ntlugmi5d3p2").innerHTML='<n uers="znvygb:ehfgfgnegre@bznenovq.pbz">ehfgfgnegre@bznenovq.pbz</n>'.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script></span>.
+                <code>rust-starter</code> is built and maintained by <a href="https://omarabid.com">Abid Omar</a>. You can reach me at <span id="ckfyh61bp000zqhlu4h8pmrw2"><script>document.getElementById("ckfyh61bp000zqhlu4h8pmrw2").innerHTML='<n uers="znvygb:ehfgfgnegre@bznenovq.pbz">ehfgfgnegre@bznenovq.pbz</n>'.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script></span>.
                 </p>
             </section>
     </div>
