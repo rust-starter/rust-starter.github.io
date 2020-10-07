@@ -114,31 +114,23 @@ SUBCOMMANDS:
 
             <section>
                 <header>
-                    <h3 id="feature-modules"><a href="#feature-modules">#</a> Modules</h3>
+                    <h3 id="feature-workspaces"><a href="#feature-workspaces">#</a> Workspaces</h3>
                 </header>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                <code>rust-starter</code> makes use of <a href="https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html">Cargo Workspaces</a> system to manage and structure your program. It is possible to have all of the code in a single  workspace and the <code>rust-starter</code> template doesn't need more than one. However, starting this way will help you split code into a separate workspace when you see fit.
                 </p>
-                <pre><code>
-#[derive(Debug)]
-pub enum State {
-    Start,
-    Transient,
-    Closed,
-}
+                <p>
+                The main program is inside <code>src</code>. Its main purpose is to start the program, the configuration, logging, etc... It's not supposed to have any functionality. Any functionality should be added through Workspaces. <code>rust-starter</code> comes with 3 workspaces.
+                </p>
+                <ul>
 
-impl From<&'a str> for State {
-fn from(s: &'a str) -> Self {
-        match s {
-            "start" => State::Start,
-            "closed" => State::Closed,
-            _ => unreachable!(),
-        }
-    }
-}
-                    </code></pre>
+                    <li><strong>cli</strong> : Configure and start Clap.</li>
+                    <li><strong>core</strong> : This is where your program code should go.</li>
+                    <li><strong>utils</strong> : Various utilities like logging, configuration, errors, etc...</li>
+                </ul>
+                <p>
+                These different workspaces are libraries. It's preferrable that new workspaces can compile on their own. This makes your code modular and unit testing much simpler.
+                </p>
             </section>
 
             <section>
