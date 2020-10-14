@@ -149,12 +149,27 @@ SUBCOMMANDS:
 
             <section>
                 <header>
-                    <h3 id="feature-errors"><a href="#feature-errors">#</a> Errors</h3>
+                    <h3 id="feature-errors"><a href="#feature-errors">#</a> == Errors</h3>
                 </header>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                <code>rust-starter</code> tries to follow the best practices to handle errors. For this, it is useful that your program uses Rust's <code>std::error::Error</code> trait. All your errors should implement this trait. Before the 1.0 release, <code>rust-starter</code> used the <a href="https://github.com/rust-lang-nursery/failure">failure</a> crate; but it is now deprecated. <a href="https://github.com/dtolnay/thiserror">thiserror</a> will be used instead.
+                </p>
+                <p>
+                To be able to propagate errors using the <code>?</code> operator, it's possible to <a href="https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html">wrap your custom error type</a> with a Box type. This has the downside of dynamically allocating memory for errors in the heap. A better approach is to convert errors at compile time; which <code>rust-starter</code> has a few examples of.
+                </p>
+                <p>
+                The approach taken is to define proper <code>Result</code> and <code>Error</code> types. This has the advantage of easy upgrades and library changes. For example, if you want to switch from the <code>thiserror</code> crate, you have a central and single place to do this change, and the rest of your code is unchanged.
+                </p>
+                <h5>Simulating an error</h5>
+                <p>
+                To test that our error reporting is functioning correctly, <code>rust-starter</code> has a special subcommand to intentionally trigger an error.
+                </p>
+                <pre><code>cargo run error</code></pre>
+                <p>
+                <code>rust-starter</code> uses the <a href="https://github.com/mitsuhiko/better-panic">better-panic</a> crate to print and prettify backtraces. This library is only enabled when debugging and disabled for release builds.
+                </p>
+                <p class="terminal-alert terminal-alert-error">
+                Backtracing for the <code>std::Error</code> is only available in nightly. For this reason, the stable <code>rust-starter</code> still uses the <a href="https://crates.io/crates/failure">Failure</a> crate. If you want to use <code>std::Error</code> with Bactrace in nightly, use the <code>newError</code> branch.
                 </p>
             </section>
 
