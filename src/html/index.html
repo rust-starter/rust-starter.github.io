@@ -13,7 +13,7 @@
         <p><code>rust-starter</code> is a template CLI app that compiles. It makes
             choices about depedencies, structure, configuration, error handling,
             logging, CI/CD and more.</p>
-        <p>It is useful if you are looking to get started quickly and have sane defaults
+        <p>It is useful if you are looking to build a CLI application with Rust. It helps you get started quickly and have sane defaults
             in place.</p>
         <h2 id="how-to-use">Philosopy</h2>
         <ul>
@@ -26,6 +26,8 @@
             <li><strong>Sane Choices: </strong> <code>rust-starter</code> follows the
                 <a href="https://github.com/mre/idiomatic-rust">idiomatic Rust</a>                philosophy. It attempts to follow and stick to the industry best
                 practices.</li>
+            <li><strong>Documentation</strong>: Detailed documentation for the choices, features and possible configurations.
+                </li>
         </ul>
 
         <hr /> {{> toc }}
@@ -37,7 +39,7 @@
                 <h2 id="getting-started">Getting Started</h2>
             </header>
             <p>
-                <code>rust-starter</code> aims to keep things simple when starting.
+                <code>rust-starter</code> aims to keep things simple.
                 Simply clone the repository, and run the project.
             </p>
             <pre><code>
@@ -66,6 +68,7 @@ OPTIONS:
 
 SUBCOMMANDS:
     config    Show Configuration
+    error     Simulate an error
     hazard    Generate a hazardous occurance
     help      Prints this message or the help of the given subcommand(s)
 </code></pre>
@@ -117,10 +120,10 @@ SUBCOMMANDS:
                     <h3 id="feature-workspaces"><a href="#feature-workspaces">#</a> Workspaces</h3>
                 </header>
                 <p>
-                <code>rust-starter</code> makes use of <a href="https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html">Cargo Workspaces</a> system to manage and structure your program. It is possible to have all of the code in a single  workspace and the <code>rust-starter</code> template doesn't need more than one. However, starting this way will help you split code into a separate workspace when you see fit.
+                <code>rust-starter</code> makes use of <a href="https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html">Cargo Workspaces</a> to manage and structure your program. It is possible to have all of the code in a single  workspace and the <code>rust-starter</code> template doesn't need more than one. However, starting this way will help you split code into a separate workspace when you see fit.
                 </p>
                 <p>
-                The main program is inside <code>src</code>. Its main purpose is to start the program, the configuration, logging, etc... It's not supposed to have any functionality. Any functionality should be added through Workspaces. <code>rust-starter</code> comes with 3 workspaces.
+                The main program is inside <code>src</code>. Its main purpose is to start the program, the configuration, logging, etc... It's not supposed to have any functionality. It is recommended that these are added through Workspaces. <code>rust-starter</code> comes with 3 workspaces.
                 </p>
                 <ul>
 
@@ -129,7 +132,7 @@ SUBCOMMANDS:
                     <li><strong>utils</strong> : Various utilities like logging, configuration, errors, etc...</li>
                 </ul>
                 <p>
-                These different workspaces are libraries. It's preferrable that new workspaces can compile on their own. This makes your code modular and unit testing much simpler.
+                These different workspaces are libraries. It's preferrable that new workspaces can compile on their own. This makes your code modular and unit testing much simpler. You can add more workspaces if you need to.
                 </p>
             </section>
 
@@ -149,10 +152,10 @@ SUBCOMMANDS:
 
             <section>
                 <header>
-                    <h3 id="feature-errors"><a href="#feature-errors">#</a> == Errors</h3>
+                    <h3 id="feature-errors"><a href="#feature-errors">#</a> Errors</h3>
                 </header>
                 <p>
-                <code>rust-starter</code> tries to follow the best practices to handle errors. For this, it is useful that your program uses Rust's <code>std::error::Error</code> trait. All your errors should implement this trait. Before the 1.0 release, <code>rust-starter</code> used the <a href="https://github.com/rust-lang-nursery/failure">failure</a> crate; but it is now deprecated. <a href="https://github.com/dtolnay/thiserror">thiserror</a> will be used instead.
+                <code>rust-starter</code> tries to follow the best practices to handle errors. For this, it is useful that your program uses Rust's <code>std::error::Error</code> trait. All your errors should implement this trait. With the 1.0 release, <code>rust-starter</code> uses the <a href="https://github.com/rust-lang-nursery/failure">failure</a> crate; which is now deprecated. <a href="https://github.com/dtolnay/thiserror">thiserror</a> will be used instead in the future; see the note below.
                 </p>
                 <p>
                 To be able to propagate errors using the <code>?</code> operator, it's possible to <a href="https://doc.rust-lang.org/stable/rust-by-example/error/multiple_error_types/boxing_errors.html">wrap your custom error type</a> with a Box type. This has the downside of dynamically allocating memory for errors in the heap. A better approach is to convert errors at compile time; which <code>rust-starter</code> has a few examples of.
@@ -169,7 +172,7 @@ SUBCOMMANDS:
                 <code>rust-starter</code> uses the <a href="https://github.com/mitsuhiko/better-panic">better-panic</a> crate to print and prettify backtraces. This library is only enabled when debugging and disabled for release builds.
                 </p>
                 <p class="terminal-alert terminal-alert-error">
-                Backtracing for the <code>std::Error</code> is only available in nightly. For this reason, the stable <code>rust-starter</code> still uses the <a href="https://crates.io/crates/failure">Failure</a> crate. If you want to use <code>std::Error</code> with Bactrace in nightly, use the <code>newError</code> branch.
+                Backtracing for the <code>std::Error</code> is only available in nightly. For this reason, the stable <code>rust-starter</code> still uses the <a href="https://crates.io/crates/failure">Failure</a> crate. If you want to use <code>std::Error</code> with Backtrace in nightly, use the <code>newError</code> branch.
                 </p>
             </section>
 
