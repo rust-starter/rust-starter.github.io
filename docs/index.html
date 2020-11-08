@@ -287,7 +287,7 @@ SUBCOMMANDS:
                 <code>rust-starter</code> is not optimized for any particular use-case; and should, preferrably, run in multiple operating systems under different conditions. Unfortunately, it's currently compiled only against Linux. macOS and Windows are high in the list of the OSes to be supported in the next releases.
                 </p>
                 <p>
-Currently, <code>rust-starter</code> compiles under <a href="https://github.com/emk/rust-musl-builder">rust-musl-builder</a>. rust-musl-builder is a docker image to compile your rust application into a static Rust binary.
+Currently, <code>rust-starter</code> compiles under <a href="https://github.com/emk/rust-musl-builder">rust-musl-builder</a>. rust-musl-builder is a docker image to compile your rust application into a static Rust binary. It is then tested under Alpine Linux to make sure your program is working inside the lightest of containers.
                 </p>
                 <p>
                 While compiling locally is faster for development, this doesn't give many garantuees about your program running under different conditions. This is less important if you are deploying your program to a predictable environment (ie: a server). You can, then, change the Docker file to match the environment for your deployment. 
@@ -367,7 +367,7 @@ Currently, <code>rust-starter</code> compiles under <a href="https://github.com/
             </header>
             <p>
                 <code>rust-starter</code> is built and maintained by <a href="https://omarabid.com">Abid Omar</a>.
-                You can reach me at <span id="ckh9e56n4003l0gluftcp747e"><script>document.getElementById("ckh9e56n4003l0gluftcp747e").innerHTML='<n uers="znvygb:ehfgfgnegre@bznenovq.pbz">ehfgfgnegre@bznenovq.pbz</n>'.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script></span>.
+                You can reach me at <span id="ckh9e9h35003n0glusswnb80s"><script>document.getElementById("ckh9e9h35003n0glusswnb80s").innerHTML='<n uers="znvygb:ehfgfgnegre@bznenovq.pbz">ehfgfgnegre@bznenovq.pbz</n>'.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script></span>.
             </p>
         </section>
     </div>

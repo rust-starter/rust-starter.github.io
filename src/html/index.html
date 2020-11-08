@@ -236,7 +236,7 @@ SUBCOMMANDS:
                 <code>rust-starter</code> is not optimized for any particular use-case; and should, preferrably, run in multiple operating systems under different conditions. Unfortunately, it's currently compiled only against Linux. macOS and Windows are high in the list of the OSes to be supported in the next releases.
                 </p>
                 <p>
-Currently, <code>rust-starter</code> compiles under <a href="https://github.com/emk/rust-musl-builder">rust-musl-builder</a>. rust-musl-builder is a docker image to compile your rust application into a static Rust binary.
+Currently, <code>rust-starter</code> compiles under <a href="https://github.com/emk/rust-musl-builder">rust-musl-builder</a>. rust-musl-builder is a docker image to compile your rust application into a static Rust binary. It is then tested under Alpine Linux to make sure your program is working inside the lightest of containers.
                 </p>
                 <p>
                 While compiling locally is faster for development, this doesn't give many garantuees about your program running under different conditions. This is less important if you are deploying your program to a predictable environment (ie: a server). You can, then, change the Docker file to match the environment for your deployment. 
