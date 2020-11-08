@@ -181,10 +181,29 @@ SUBCOMMANDS:
                     <h3 id="feature-configuration"><a href="#feature-configuration">#</a> Configuration</h3>
                 </header>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                <code>rust-starter</code> manages a configuration struct to mutate, store and retrieve a configuration state. Currently, a configuration file could be passed using the <code>-c</code> flag, and its content will be merged. Environment variables starting with <code>APP</code> will also be merged. It's recommended to change the <code>APP</code> prefix.
                 </p>
+                <p>
+                Under the hood, <code>rust-starter</code> uses the <a href="https://github.com/mehcode/config-rs">config-rs</a> crate. However, it exposes an <code>AppConfig</code> struct that you can use to store and retrieve configuration. The relevant code can be found in <code>utils/src/app_config.rs</code>. It's recommended to use this struct instead of <code>config-rs</code> directly, as this depedency might get changed in the future.
+                </p>
+                <p>
+                The configuration struct is initialized with a default configuration file at program start. This file can be found in <code>src/resources/default_config.toml</code>. You only need to initialize the configuration once. It's stored in a static <a href="https://doc.rust-lang.org/std/sync/struct.RwLock.html">RwLock</a> making it globally accessible and also thread-safe.
+                </p>
+                <pre><code>
+    let config_contents = include_str!("resources/default_config.toml");
+    AppConfig::init(Some(config_contents))?;
+                </code></pre>
+                <p>
+                You can merge additional settings to your configuration struct, but also retrieve or change single settings.
+                </p>
+                <pre><code>
+    // Merge config
+    AppConfig::merge_config(cli_matches.value_of("config"))?;
+    // Get config value
+    AppConfig::get::<bool>("debug").unwrap();
+    // Set config value
+    AppConfig::set("database.url", "new url").unwrap();
+                </code></pre>
             </section>
 
             <section>
