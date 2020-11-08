@@ -233,9 +233,22 @@ SUBCOMMANDS:
                     <h3 id="feature-cicd"><a href="#feature-cicd">#</a> CI/CD</h3>
                 </header>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                <code>rust-starter</code> is not optimized for any particular use-case; and should, preferrably, run in multiple operating systems under different conditions. Unfortunately, it's currently compiled only against Linux. macOS and Windows are high in the list of the OSes to be supported in the next releases.
+                </p>
+                <p>
+Currently, <code>rust-starter</code> compiles under <a href="https://github.com/emk/rust-musl-builder">rust-musl-builder</a>. rust-musl-builder is a docker image to compile your rust application into a static Rust binary.
+                </p>
+                <p>
+                While compiling locally is faster for development, this doesn't give many garantuees about your program running under different conditions. This is less important if you are deploying your program to a predictable environment (ie: a server). You can, then, change the Docker file to match the environment for your deployment. 
+                </p>
+                <p>
+                On the other hand, if you are distributing the program under different conditions as a binary, it might be a good idea to have it compile as a static standalone binary. To do that, all you have to run is the compile command for that. You'll need to have <a href="https://www.docker.com/">Docker</a> and <a href="https://github.com/casey/just">just</a> installed in your system.
+                </p>
+                <pre><code>
+    just docker
+                </code></pre>
+                <p>
+                There is no output for this build process, although it's possible to tweak that. The reason is that the build happens over Github when you push your code. For that, see the next section Github actions.
                 </p>
             </section>
 
