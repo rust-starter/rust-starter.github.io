@@ -253,8 +253,7 @@ SUBCOMMANDS:
     // Get config value
     AppConfig::get::<bool>("debug").unwrap();
     // Set config value
-    AppConfig::set("database.url", "new url").unwrap();
-                </code></pre>
+    AppConfig::set("database.url", "new url").unwrap();</code></pre>
             </section>
 
             <section>
@@ -270,9 +269,7 @@ SUBCOMMANDS:
                 <p>
                 To see logging in action, you can run the <code>error</code> command. It should log an error message to the terminal and syslog. Before the program fails, you should see this line. (This should also be logged to syslog).
                 </p>
-                <pre><code>
-Nov 10 01:19:42.014 INFO We are simulating an error, who: rust-starter
-                </code></pre>
+                <pre><code>Nov 10 01:19:42.014 INFO We are simulating an error, who: rust-starter</code></pre>
                 <p>
                 While this is good enough, you might want to customize your logging drains. Any logs that you write, are passed to all of these drains. slog supports several drain options. The file <code>utils/src/logger.rs</code> contains these implementations.
                 </p>
@@ -310,9 +307,7 @@ Currently, <code>rust-starter</code> compiles under <a href="https://github.com/
                 <p>
                 On the other hand, if you are distributing the program under different conditions as a binary, it might be a good idea to have it compile as a static standalone binary. To do that, all you have to run is the compile command for that. You'll need to have <a href="https://www.docker.com/">Docker</a> and <a href="https://github.com/casey/just">just</a> installed in your system.
                 </p>
-                <pre><code>
-    just docker
-                </code></pre>
+                <pre><code>just docker</code></pre>
                 <p>
                 There is no output for this build process, although it's possible to tweak that. The reason is that the build happens over Github when you push your code. For that, see the next section Github actions.
                 </p>
@@ -340,10 +335,9 @@ Currently, <code>rust-starter</code> compiles under <a href="https://github.com/
                     <h3 id="feature-generate"><a href="#feature-generate">#</a> Cargo Generate</h3>
                 </header>
                 <p>
-                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                tempor sit amet, ante.
+                <a href="https://github.com/ashleygwilliams/cargo-generate">cargo-generate</a> is a developer tool to help you get up and running quickly with a new Rust project by leveraging a pre-existing git repository as a template. cargo-generate doesn't have any templates by default and <code>rust-stater</code> has a template. A template for rust-starter is available at <a href="https://github.com/rust-starter/rust-starter-generate">rust-starter-generate</a>.
                 </p>
+                <pre><code>cargo generate --git https://github.com/rust-starter/rust-starter-generate</code></pre>
             </section>
 
         </section>
@@ -388,7 +382,7 @@ Currently, <code>rust-starter</code> compiles under <a href="https://github.com/
             </header>
             <p>
                 <code>rust-starter</code> is built and maintained by <a href="https://omarabid.com">Abid Omar</a>.
-                You can reach me at <span id="ckhb90upe00690glu2gjqay5c"><script>document.getElementById("ckhb90upe00690glu2gjqay5c").innerHTML='<n uers="znvygb:ehfgfgnegre@bznenovq.pbz">ehfgfgnegre@bznenovq.pbz</n>'.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script></span>.
+                You can reach me at <span id="ckhb9baa4006z0gluskptrfqt"><script>document.getElementById("ckhb9baa4006z0gluskptrfqt").innerHTML='<n uers="znvygb:ehfgfgnegre@bznenovq.pbz">ehfgfgnegre@bznenovq.pbz</n>'.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script></span>.
             </p>
         </section>
     </div>
