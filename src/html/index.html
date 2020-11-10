@@ -211,9 +211,19 @@ SUBCOMMANDS:
                     <h3 id="feature-logging"><a href="#feature-logging">#</a> Logging</h3>
                 </header>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                The standard interface for logging in Rust is the <a href="https://github.com/rust-lang/log">log</a> crate. It defines a set of macros for logging like <code>info!</code> and <code>error!</code>. While <code>rust-starter</code> uses <a href="https://github.com/slog-rs/slog">slog</a> and has two drains for logs: syslog and terminal; it is fully compatible with the log facade.
+                </p>
+                <p>
+                Logging in <code>rust-starter</code> works out of the box. In any of the sub-crates in your workspace, you can add the log crate as a depedency and use its macros. These logs will be forwarded to slog drains. If these drains are not available or fail to initialize, the logs will be discarded.
+                </p>
+                <p>
+                To see logging in action, you can run the <code>error</code> command. It should log an error message to the terminal and syslog. Before the program fails, you should see this line. (This should also be logged to syslog).
+                </p>
+                <pre><code>
+Nov 10 01:19:42.014 INFO We are simulating an error, who: rust-starter
+                </code></pre>
+                <p>
+                While this is good enough, you might want to customize your logging drains. Any logs that you write, are passed to all of these drains. slog supports several drain options. The file <code>utils/src/logger.rs</code> contains these implementations.
                 </p>
             </section>
 
