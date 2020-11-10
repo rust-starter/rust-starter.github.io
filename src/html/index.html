@@ -232,9 +232,14 @@ Nov 10 01:19:42.014 INFO We are simulating an error, who: rust-starter
                     <h3 id="feature-testing"><a href="#feature-testing">#</a> Testing</h3>
                 </header>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                <code>rust-starter</code> comes with a few tests for the commandline program and the config struct. You can run all the tests by running.
+                </p>
+                <pre><code>cargo test --all</code></pre>
+                <p>
+                It is recommended to put integration tests for the command line in the root of your program, and write tests for each sub-crate in your workspace individually.
+                </p>
+                <p>
+                <code>rust-starter</code> also has integrations to run tests in Github actions, and also a code coverage integration with <a href="https://codecov.io">codecov</a>.
                 </p>
             </section>
 
@@ -267,10 +272,16 @@ Currently, <code>rust-starter</code> compiles under <a href="https://github.com/
                     <h3 id="feature-github"><a href="#feature-github">#</a> Github Actions</h3>
                 </header>
                 <p>
-                    Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis
-                    egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget,
-                    tempor sit amet, ante.
+                Several workflows are included. This is a list
                 </p>
+                <ul>
+                    <li><span><strong>audit.yml</strong></span>:</li>
+                    <li><span><strong>build.yml</strong></span>:</li>
+                    <li><span><strong>codecov.yml</strong></span>:</li>
+                    <li><span><strong>lint.yml</strong></span>:</li>
+                    <li><span><strong>tests.yml</strong></span>:</li>
+                    <li><span><strong>toc.yml</strong></span>: This generate a Table of Content for the Readme page, and could be removed.</li>
+                    </ul>
             </section>
 
             <section>
