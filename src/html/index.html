@@ -13,15 +13,14 @@
         <p><code>rust-starter</code> is a template CLI app that compiles. It makes
             choices about depedencies, structure, configuration, error handling,
             logging, CI/CD and more.</p>
-        <p>It is useful if you are looking to build a CLI application with Rust. It helps you get started quickly and have sane defaults
-            in place.</p>
+        <p>It is useful if you are looking to build a CLI application. It can be used as a starting point for command-line tools that are written in Rust.</p>
         <h2 id="how-to-use">Philosopy</h2>
         <ul>
             <li><strong>Select Depedencies: </strong> <code>rust-starter</code> is
-                biased toward popular and stable depedencies. These can be changed,
-                but we make this choice so that you can focus on coding.</li>
+                biased toward popular and stable depedencies. These could be changed later,
+                but we make these choices so that you can focus on your CLI functionalities.</li>
             <li><strong>No Configuration: </strong> The <code>rust-starter</code> template
-                already compiles, so you don't need to configure anything to get
+                already compiles and runs, so you don't need to configure anything to get
                 your program working.</li>
             <li><strong>Sane Choices: </strong> <code>rust-starter</code> follows the
                 <a href="https://github.com/mre/idiomatic-rust">idiomatic Rust</a>                philosophy. It attempts to follow and stick to the industry best
@@ -40,10 +39,10 @@
             </header>
             <p>
                 <code>rust-starter</code> aims to keep things simple.
-                Simply clone the repository, and run the project.
+                To get started, simply clone the repository, and run the project.
             </p>
             <pre><code>
-git clone git@github.com:rust-starter/rust-starter.git
+git clone https://github.com/rust-starter/rust-starter
 cd rust-starter
 cargo run
                 </code></pre>
@@ -75,8 +74,7 @@ SUBCOMMANDS:
             <p>
                 That's it. If you got this output, <code>rust-starter</code> has
                 successfully compiled and run. You can also run the available subcommands
-                like <code>cargo run config</code> to show the loaded configuration
-                and <code>cargo run hazard</code> which is a sample subcommand.
+                like <code>cargo run config</code> to show the loaded configuration, <code>cargo run hazard</code> which is a sample subcommand, and <code>cargo run error</code> to intentionally trigger an error.
             </p>
         </section>
 
@@ -90,20 +88,25 @@ SUBCOMMANDS:
                 <header>How does rust-starter compare to clap?</header>
                 <div>
                     <code>clap</code> and <code>rust-starter</code> do not serve
-                        the same purpose.
+                    the same purpose. <code>clap</code> is a library to parse command-line arguments. <code>rust-starter</code> is a template program that uses <code>clap</code>.
                 </div>
             </div>
             <div class="terminal-card">
                 <header>What are some reasons to use rust-starter?</header>
                 <div>
-                    <code>clap</code> and <code>rust-starter</code> do not serve
-                        the same purpose.
+                    <ul>
+                        <li>To get started quickly.</li>
+                        <li>If you want to have CI/CD.</li>
+                        <li>If you want to have a good integration with Github and Docker.</li>
+                    </ul>
                 </div>
             </div>
             <div class="terminal-card">
                 <header>What are some reasons <strong>not</strong> to use rust-starter?</header>
                 <div>
-                    <code>clap</code> and <code>rust-starter</code> do not serve the same purpose.
+                    <ul>
+                        <li>If you are not building a CLI application.</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -123,7 +126,7 @@ SUBCOMMANDS:
                 <code>rust-starter</code> makes use of <a href="https://doc.rust-lang.org/book/ch14-03-cargo-workspaces.html">Cargo Workspaces</a> to manage and structure your program. It is possible to have all of the code in a single  workspace and the <code>rust-starter</code> template doesn't need more than one. However, starting this way will help you split code into a separate workspace when you see fit.
                 </p>
                 <p>
-                The main program is inside <code>src</code>. Its main purpose is to start the program, the configuration, logging, etc... It's not supposed to have any functionality. It is recommended that these are added through Workspaces. <code>rust-starter</code> comes with 3 workspaces.
+                The main program is inside <code>src</code>. Its main purpose is to start the program, the configuration, logging, and then run the arguments parser. It's not supposed to have any functionality. It is recommended that these are added through Workspaces. <code>rust-starter</code> comes with 3 workspaces.
                 </p>
                 <ul>
 
@@ -248,7 +251,7 @@ SUBCOMMANDS:
                 <code>rust-starter</code> is not optimized for any particular use-case; and should, preferrably, run in multiple operating systems under different conditions. Unfortunately, it's currently compiled only against Linux. macOS and Windows are high in the list of the OSes to be supported in the next releases.
                 </p>
                 <p>
-Currently, <code>rust-starter</code> compiles under <a href="https://github.com/emk/rust-musl-builder">rust-musl-builder</a>. rust-musl-builder is a docker image to compile your rust application into a static Rust binary. It is then tested under Alpine Linux to make sure your program is working inside the lightest of containers.
+                Currently, <code>rust-starter</code> compiles under <a href="https://github.com/emk/rust-musl-builder">rust-musl-builder</a>. <code>rust-musl-builder</code> is a docker image to compile your rust application into a static Rust binary. It is then tested under Alpine Linux to make sure your program is working inside the lightest of containers.
                 </p>
                 <p>
                 While compiling locally is faster for development, this doesn't give many garantuees about your program running under different conditions. This is less important if you are deploying your program to a predictable environment (ie: a server). You can, then, change the Docker file to match the environment for your deployment. 
@@ -256,7 +259,7 @@ Currently, <code>rust-starter</code> compiles under <a href="https://github.com/
                 <p>
                 On the other hand, if you are distributing the program under different conditions as a binary, it might be a good idea to have it compile as a static standalone binary. To do that, all you have to run is the compile command for that. You'll need to have <a href="https://www.docker.com/">Docker</a> and <a href="https://github.com/casey/just">just</a> installed in your system.
                 </p>
-                <pre><code>just docker</code></pre>
+                <pre><code>just build-image</code></pre>
                 <p>
                 There is no output for this build process, although it's possible to tweak that. The reason is that the build happens over Github when you push your code. For that, see the next section Github actions.
                 </p>
