@@ -312,8 +312,13 @@ SUBCOMMANDS:
                 </p>
                 <pre><code>just build-image</code></pre>
                 <p>
-                There is no output for this build process, although it's possible to tweak that. The reason is that the build happens over Github when you push your code. For that, see the next section Github actions.
+                A docker image is created under the name of <code>name:version</code>. If you didn't change the default values, it should be <code>rust-starter:1.0.0</code>. To run this image, you can execute.
                 </p>
+                <pre><code>docker run rust-starter:1.0.0</code></pre>
+                <p>
+                If you have a Docker hub account, you can push your image to the docker hub cloud. First, you should edit the <code>dockerhub_org</code> variable in the <code>justfile</code> and then execute the push command.
+                </p>
+                <pre><code>just push-image</code></pre>
             </section>
 
             <section>
@@ -385,7 +390,7 @@ SUBCOMMANDS:
             </header>
             <p>
                 <code>rust-starter</code> is built and maintained by <a href="https://omarabid.com">Abid Omar</a>.
-                You can reach me at <span id="ckk0bu39b000z1xlurjmhxm3e"><script>document.getElementById("ckk0bu39b000z1xlurjmhxm3e").innerHTML='<n uers="znvygb:ehfgfgnegre@bznenovq.pbz">ehfgfgnegre@bznenovq.pbz</n>'.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script></span>.
+                You can reach me at <span id="ckk0c5toj001j1xlu26rror0f"><script>document.getElementById("ckk0c5toj001j1xlu26rror0f").innerHTML='<n uers="znvygb:ehfgfgnegre@bznenovq.pbz">ehfgfgnegre@bznenovq.pbz</n>'.replace(/[a-zA-Z]/g,function(c){return String.fromCharCode((c<="Z"?90:122)>=(c=c.charCodeAt(0)+13)?c:c-26);});</script></span>.
             </p>
         </section>
     </div>

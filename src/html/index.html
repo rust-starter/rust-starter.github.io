@@ -261,8 +261,13 @@ SUBCOMMANDS:
                 </p>
                 <pre><code>just build-image</code></pre>
                 <p>
-                There is no output for this build process, although it's possible to tweak that. The reason is that the build happens over Github when you push your code. For that, see the next section Github actions.
+                A docker image is created under the name of <code>name:version</code>. If you didn't change the default values, it should be <code>rust-starter:1.0.0</code>. To run this image, you can execute.
                 </p>
+                <pre><code>docker run rust-starter:1.0.0</code></pre>
+                <p>
+                If you have a Docker hub account, you can push your image to the docker hub cloud. First, you should edit the <code>dockerhub_org</code> variable in the <code>justfile</code> and then execute the push command.
+                </p>
+                <pre><code>just push-image</code></pre>
             </section>
 
             <section>
